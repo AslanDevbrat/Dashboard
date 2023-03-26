@@ -1,3 +1,2 @@
 owlready2
 psycopg2-binary
-ast
