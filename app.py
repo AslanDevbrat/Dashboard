@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
-import bigjson
+#import bigjson
 from owlready2 import *
 import pickle
 import psycopg2
