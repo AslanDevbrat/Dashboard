@@ -81,7 +81,7 @@ def get_entity(entity):
 
 @st.cache_data
 def get_rare_disease_data():
-    df = pd.read_csv("data/Rare_Disease.csv")
+    df = pd.read_csv("Rare_Disease.csv")
     return  df.set_index("Disease_Name")
 
 def load_rare_disease():
