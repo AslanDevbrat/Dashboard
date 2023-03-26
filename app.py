@@ -7,7 +7,8 @@ from owlready2 import *
 import psycopg2
 import ast
 import pandas.io.sql as psql
-st.write("Here's our first attempt at using data to create a table:")
+st.write("# Rare Disease Atlas")
+st.write("#### An Extensive Database of Rare Diseases from Multiple Open-Source Resources.")
 
 
 @st.cache_resource
