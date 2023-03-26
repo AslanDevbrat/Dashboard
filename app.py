@@ -3,7 +3,7 @@ import pandas as pd
 import json
 #import bigjson
 from owlready2 import *
-import pickle
+#import pickle
 import psycopg2
 import ast
 import pandas.io.sql as psql
