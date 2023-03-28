@@ -7,6 +7,14 @@ from owlready2 import *
 import psycopg2
 import ast
 import pandas.io.sql as psql
+st.set_page_config(layout="wide")
+st.markdown('''
+<style>
+[data-testid="stMarkdownContainer"] ul{
+    padding-left:40px;
+}
+</style>
+''', unsafe_allow_html=True)
 st.write("# Rare Disease Atlas")
 st.write("#### An Extensive Database of Rare Diseases from Multiple Open-Source Resources.")
 
@@ -95,10 +103,14 @@ def load_rare_disease():
         #print(data.to_dict())
         data_dict = data.to_dict()
         for key, value in data_dict.items():
-            print(key)
+            #print(key)
             if value == value:
                 cols = st.columns(2)
                 cols[0] = st.write(f"## {key.capitalize()}")
+                if key == 'synonyms':
+                    print("found markdown")
+                    cols[1] = [st.markdown(f"- {val.capitalize()}")for val in ast.literal_eval(value)]
+                    continue
                 cols[1] = st.write("\n \n ".join(ast.literal_eval(value)))
         #show_ontogy_details(disease_name)
         #get_pubmed_data(disease_name[0])
@@ -133,7 +145,7 @@ def get_pubmed_data():
             for key, value in zip(column_name, row):
                 if not value:
                     continue
-                col = st.columns(2,gap = "small")
+                col = st.columns([1,3],gap = "small")
                 col[0].write(key.replace("_"," ").capitalize())
                 col[1].write(value)
 #@st.cache_data
